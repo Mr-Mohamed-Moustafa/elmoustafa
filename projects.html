@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youssef Negm | Front-End Developer</title>
+    <link rel="stylesheet" href="styleHtml.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .grid-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            aspect-ratio: 4/3;
+        }
+        
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .grid-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            padding: 20px 15px 15px;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .grid-item:hover .overlay {
+            opacity: 1;
+        }
+        
+        .image-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .image-desc {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 768px) {
+            .image-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .image-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Navigation Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="logo-container">
+            <img src="5aeddbac-fe10-4963-b319-239f6f44f9bf.png" alt="Mohamed Moustafa" class="logo">
+            <img src="WhatsApp Image 2025-09-07 at 00.56.22_af31050d.jpg" alt="Mohamed Moustafa" id="main">
+        </div>
+        <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="projects.html">Photos</a>
+            <a href="contact.html">Contact</a>
+            <a href="Posts.html">Posts</a>
+        </div>
+    </nav>
+    <header>
+        <div class="MyName">
+            <h1>Mouhamed Moustafa</h1>
+            <!--profesional objective-->
+            <div class="profesionalObjective">
+                <p>»	Experienced Arabic Language Teacher	 with over 18 years of teaching in international schools. including British and American curriculum. Holds the OL Arabic IGCSE Diploma <br>
+                    »	Adept in teaching Arabic at preparatory and secondary stages. Participaiecd in developing and designing multiple educational activities, and trained fellow teachers on modern teaching strategies. active learning methods, and educational technology integration.
+                </p>
+            </div>
+    </header>
+    <header>
+        <div class="MyName">
+            <h1>Gallery</h1>
+            <div class="projects-subheader">
+                <h3>Welcome to my Galary</h3>
+            </div>
+            <div class="container">        
+        <div class="image-grid">
+            <!-- Image 1 -->
+            <div class="grid-item">
+                <img src="WhatsApp Image 2025-09-11 at 23.03.38_8da1f32e.jpg">
+                <div class="overlay">
+                </div>
+            </div>
+            
+            <!-- Image 2 -->
+            <div class="grid-item">
+                <img src="WhatsApp Image 2025-09-11 at 23.03.38_dbfc122a.jpg">
+                <div class="overlay">
+                </div>
+            </div>
+            
+            <!-- Image 3 -->
+            <div class="grid-item">
+                <img src="WhatsApp Image 2025-09-11 at 23.03.39_47d0ac83.jpg">
+                <div class="overlay">
+                </div>
+            </div>
+            
+            <!-- Image 4 -->
+            <div class="grid-item">
+                <img src="WhatsApp Image 2025-09-11 at 23.03.39_57ceeefe.jpg">
+                <div class="overlay">
+                </div>
+            </div>
+            
+            <!-- Image 5 -->
+            <div class="grid-item">
+                <img src="WhatsApp Image 2025-09-11 at 23.03.39_b88cc6df.jpg">
+                <div class="overlay">
+                </div>
+            </div>
+            
+            <!-- Image 6 -->
+            <div class="grid-item">
+                <img src="WhatsApp Image 2025-09-11 at 23.03.39_d5aa5409.jpg">
+                <div class="overlay">
+                </div>
+            </div>
+            <!-- Image 7 -->
+            <div class="grid-item">
+                <img src="WhatsApp Image 2025-09-11 at 23.03.40_0d32e747.jpg">
+                <div class="overlay">
+                </div>
+            </div>
+            
+            <!-- Image 8 -->
+            <div class="grid-item">
+                <img src="WhatsApp Image 2025-09-11 at 23.03.40_93254853.jpg">
+                <div class="overlay">
+                </div>
+            </div>
+            
+            <!-- Image 9 -->
+            <div class="grid-item">
+                <img src="WhatsApp Image 2025-09-11 at 23.03.40_b05452ff.jpg">
+                <div class="overlay">
+                </div>
+            </div>
+            
+            <!-- Image 10 -->
+            <div class="grid-item">
+                <img src="WhatsApp Image 2025-09-11 at 23.06.56_68218972.jpg">
+                <div class="overlay">
+                </div>
+            </div>
+            
+            <!-- Image 11 -->
+            <div class="grid-item">
+                <img src="WhatsApp Image 2025-09-11 at 23.06.58_088a81a8.jpg">
+                <div class="overlay">
+                </div>
+            </div>
+            
+            <!-- Image 12 -->
+            <div class="grid-item">
+                <img src="WhatsApp Image 2025-09-11 at 23.06.58_55d7002d.jpg">
+                <div class="overlay">
+                </div>
+            </div>
+            <!-- Image 13 -->
+            <div class="grid-item">
+                <img src="WhatsApp Image 2025-09-11 at 23.06.58_b1fdf330.jpg">
+                <div class="overlay">
+                </div>
+            </div>
+            
+            <!-- Image 14 -->
+            <div class="grid-item">
+                <img src="WhatsApp Image 2025-09-11 at 23.06.58_c7efa43e.jpg">
+                <div class="overlay">
+                </div>
+            </div>
+            
+            <!-- Image 15 -->
+            <div class="grid-item">
+                <img src="WhatsApp Image 2025-09-11 at 23.16.23_b83a7f3e.jpg">
+                <div class="overlay">
+                </div>
+            </div>
+            
+            <!-- Image 16 -->
+            <div class="grid-item">
+                <img src="WhatsApp Image 2025-09-11 at 23.38.50_fbcf8557.jpg">
+                <div class="overlay">
+                </div>
+            </div>
+        </div>
+    </div>
+    </header>
+<!--Footer Section-->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/19cd4aKFDW/?mibextid=wwXIfr" aria-label="facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="mrmohamedmoustafa.m3011@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://api.whatsapp.com/send/?phone=1270152646&text&type=phone_number&app_absent=0"" aria-label="whatsapp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            <p class="copyright">&copy; <span id="current-year"></span> Youssef Negm. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
