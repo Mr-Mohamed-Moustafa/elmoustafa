@@ -54,7 +54,6 @@
             /* max-width: 1200px; */
             margin: 0 auto;
             padding: 0 1.5rem;
-            margin-top: 100vh;
         }
 
         /* Skip Link for Accessibility */
@@ -987,4 +986,5 @@
             .mission-statement {
                 font-size: 1.3rem;
             }
+
         }
