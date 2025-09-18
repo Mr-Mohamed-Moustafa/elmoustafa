@@ -51,9 +51,10 @@
 
         .container {
             width: 100%;
-            max-width: 1200px;
+            /* max-width: 1200px; */
             margin: 0 auto;
             padding: 0 1.5rem;
+            margin-top: 100vh;
         }
 
         /* Skip Link for Accessibility */
@@ -778,98 +779,52 @@
             background-color: #111;
         }
         
-        .controls {
-            display: flex;
-            align-items: center;
-            padding: 12px 15px;
-            background-color: rgba(0, 0, 0, 0.7);
-            gap: 15px;
-            position: relative;
-            margin-top: 100vw;
-        }
-        
-        .play-pause {
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: white;
-            font-size: 20px;
-            width: 40px;
-            height: 40px;
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: background 0.2s;
-        }
-        
-        .play-pause:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-        
-        .volume-container {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: white;
-        }
-        
-        .volume-slider {
-            width: 80px;
-            height: 5px;
-            -webkit-appearance: none;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
-            outline: none;
-        }
-        
-        .volume-slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: #fff;
             cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 10;
         }
         
-        .progress-container {
-            flex-grow: 1;
-            height: 5px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 0 15px;
+        .play-button::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 20px solid #ff6b6b;
+            margin-left: 5px;
+            transition: all 0.3s ease;
         }
         
-        .progress-bar {
-            height: 100%;
-            background-color: #ff4081;
-            border-radius: 5px;
-            width: 0%;
+        .play-button:hover {
+            background: white;
+            transform: translate(-50%, -50%) scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
         
-        .time {
-            color: white;
-            font-size: 14px;
-            min-width: 80px;
-            text-align: center;
+        .play-button:hover::before {
+            border-left-color: #ff3838;
         }
         
-        .title {
-            color: white;
-            text-align: center;
-            padding: 15px;
-            font-size: 22px;
-            background: linear-gradient(to right, #ff8a00, #da1b60);
-        }
-        
-        .fullscreen {
-            background: none;
+        .play-button.playing::before {
+            content: '';
+            width: 10px;
+            height: 30px;
             border: none;
-            cursor: pointer;
-            color: white;
-            font-size: 20px;
-            margin-left: 10px;
+            background: linear-gradient(to right, #ff3838 0%, #ff3838 30%, #ff6b6b 30%, #ff6b6b 70%, #ff3838 70%, #ff3838 100%);
+            margin-left: 0;
         }
         
         @media (max-width: 600px) {
@@ -986,6 +941,4 @@
             .mission-statement {
                 font-size: 1.3rem;
             }
-
         }
-
