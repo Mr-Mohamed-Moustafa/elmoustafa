@@ -27,12 +27,18 @@
             <a href="Posts.html">Posts</a>
         </div>
     </nav>
+<!-- <div class="video-container"> -->
         <div class="video-wrapper">
             <video id="myVideo" autoplay loop playsinline>
             <source src="0917 (1).mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
+        <div class="controls">
+            <!-- <button class="play-pause" id="playPause"></button> -->
+            <div class="play-button" id="playButton"></div>
+        </div>
+</div>
 <!--Footer Section-->
     <footer>
         <div class="container">
@@ -50,112 +56,45 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const video = document.getElementById('myVideo');
-            const playPauseBtn = document.getElementById('playPause');
-            const volumeSlider = document.getElementById('volumeSlider');
-            const progressBar = document.getElementById('progressBar');
-            const progressContainer = document.getElementById('progressContainer');
-            const timeDisplay = document.getElementById('timeDisplay');
-            const fullscreenBtn = document.getElementById('fullscreenBtn');
+            const playButton = document.getElementById('playButton');
+            const copyButton = document.getElementById('copyBtn');
             
             // Play/Pause functionality
             video.addEventListener('click', function() {
                 if (video.paused) {
                     video.play();
-                    playPauseBtn.innerHTML = '❚❚';
+                    playPauseBtn.innerHTML = '||';
                 } else {
                     video.pause();
                     playPauseBtn.innerHTML = '▶';
                 }
             });
-            
-            playPauseBtn.addEventListener('click', function() {
-                if (video.paused) {
-                    video.play();
-                    playPauseBtn.innerHTML = '❚❚';
-                } else {
-                    video.pause();
-                    playPauseBtn.innerHTML = '▶';
-                }
-            });
-            
-            // Volume control
-            volumeSlider.addEventListener('input', function() {
-                video.volume = volumeSlider.value;
-                
-                // Change icon based on volume level
-                const volIcon = volumeSlider.previousElementSibling;
-                if (video.volume == 0) {
-                    volIcon.innerHTML = '🔇';
-                } else if (video.volume < 0.5) {
-                    volIcon.innerHTML = '🔈';
-                } else {
-                    volIcon.innerHTML = '🔊';
-                }
-            });
-            
-            // Update progress bar
-            video.addEventListener('timeupdate', function() {
-                const currentTime = video.currentTime;
-                const duration = video.duration;
-                
-                // Update progress bar width
-                const progressPercent = (currentTime / duration) * 100;
-                progressBar.style.width = `${progressPercent}%`;
-                
-                // Update time display
-                const currentMinutes = Math.floor(currentTime / 60);
-                const currentSeconds = Math.floor(currentTime % 60);
-                const durationMinutes = Math.floor(duration / 60);
-                const durationSeconds = Math.floor(duration % 60);
-                
-                timeDisplay.innerHTML = `${formatTime(currentMinutes)}:${formatTime(currentSeconds)} / ${formatTime(durationMinutes)}:${formatTime(durationSeconds)}`;
-            });
-            
-            // Click on progress bar to seek
-            progressContainer.addEventListener('click', function(e) {
-                const pos = (e.pageX - this.getBoundingClientRect().left) / this.offsetWidth;
-                video.currentTime = pos * video.duration;
-            });
-            
-            // Fullscreen functionality
-            fullscreenBtn.addEventListener('click', function() {
-                if (!document.fullscreenElement) {
-                    if (video.requestFullscreen) {
-                        video.requestFullscreen();
-                    } else if (video.webkitRequestFullscreen) {
-                        video.webkitRequestFullscreen();
-                    } else if (video.msRequestFullscreen) {
-                        video.msRequestFullscreen();
-                    }
-                } else {
-                    if (document.exitFullscreen) {
-                        document.exitFullscreen();
-                    } else if (document.webkitExitFullscreen) {
-                        document.webkitExitFullscreen();
-                    } else if (document.msExitFullscreen) {
-                        document.msExitFullscreen();
-                    }
-                }
-            });
-            
-            // Format time to always show two digits
-            function formatTime(time) {
-                return time < 10 ? `0${time}` : time;
+
+                    playButton.addEventListener('click', function() {
+            if (video.paused) {
+                video.play();
+                playButton.classList.add('playing');
+            } else {
+                video.pause();
+                playButton.classList.remove('playing');
             }
-            
-            // Update time display on video load
-            video.addEventListener('loadedmetadata', function() {
-                const durationMinutes = Math.floor(video.duration / 60);
-                const durationSeconds = Math.floor(video.duration % 60);
-                timeDisplay.innerHTML = `00:00 / ${formatTime(durationMinutes)}:${formatTime(durationSeconds)}`;
-            });
-            
-            // Change play/pause button when video ends
-            video.addEventListener('ended', function() {
-                playPauseBtn.innerHTML = '▶';
-            });
+        });
+        
+        // Copy code functionality
+        copyButton.addEventListener('click', function() {
+            const code = document.querySelector('.code-content').textContent;
+            navigator.clipboard.writeText(code)
+                .then(() => {
+                    copyButton.textContent = 'Copied!';
+                    setTimeout(() => {
+                        copyButton.textContent = 'Copy Code';
+                    }, 2000);
+                })
+                .catch(err => {
+                    console.error('Failed to copy: ', err);
+                });
+        });
         });
     </script>
 </body>
-
 </html>
